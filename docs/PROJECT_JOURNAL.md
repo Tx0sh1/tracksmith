@@ -1,33 +1,32 @@
-# 🧠 Project Journal: Tracksmith
+
+# 🧠 Project Journal: **Tracksmith**
 **Start Date:** 2025-04-29  
-**Language/Tech Stack:** Rust, clap, walkdir, lofty (planned), serde (planned)  
-**Goal:** Build a command-line tool to scan, organize, and manage my local music library by reading metadata and renaming files.  
-**Repo:** [Add your GitHub repo link here]
+**Language/Tech Stack:** Rust, WalkDir  
+**Goal:** Build a CLI tool to organize and manage a music library by scanning files, detecting `.mp3` formats, and moving them to designated directories.
+
+**Repo:** [[tracksmith](https://github.com/Tx0sh1/tracksmith)]
 
 ---
 
 ## 📅 2025-04-29
 **What I worked on:**  
-- Decided to build a music library manager CLI tool in Rust  
-- Explored the `clap` crate and understood how to create subcommands  
-- Set up initial project structure and CLI arguments  
+- Built the basic structure for **Tracksmith**.
+- Implemented file scanning using the `walkdir` crate to recursively find files in a user-specified directory.
+- Integrated file extension checking to identify `.mp3` files for further processing.
+- Planned future work for metadata extraction and file handling (like moving files based on type).
 
 **Challenges:**  
-- Wondering how to persist music library data (flat file vs embedded db)  
-- Unsure what crate supports all audio formats best for metadata  
+- Figuring out how to filter specific file extensions while traversing directories.
+- Ensuring the program works correctly when provided with user input (directory location).
+- Managing code structure for scalability as I add more features (metadata extraction and moving files).
 
 **What I learned / How I solved it:**  
-- `clap` has a clean derive-based macro interface  
-- Found crates like `walkdir` for recursive file scanning and `lofty` for reading tags  
+- Learned how to use the `WalkDir` crate for recursive directory traversal.
+- Discovered how to match file extensions using `match` with Rust, and structured my code for flexibility with a placeholder for future work.
+- Improved error handling for invalid user input and potential file access issues (though this still needs further refinement).
 
 **Next steps:**  
-- Implement a `scan` command to list audio files in a directory  
-- Try extracting metadata from MP3 files using `lofty`  
-- Plan folder structure and a basic config file approach
-
----
-
-## 💡 Reflections
-- Excited about this project — it feels personal and useful  
-- Want to build it out piece by piece instead of rushing  
-- Journaling this feels strange but helpful; curious how it'll feel in a month
+- Research metadata extraction for `.mp3` files using the `lofty` crate.
+- Implement logic to move `.mp3` files into designated directories based on user preferences.
+- Add a simple logging or JSON tracking system to remember which files have been processed.
+- Test the program with various directories and file types.
