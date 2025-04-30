@@ -1,6 +1,5 @@
 use walkdir::WalkDir;
-// future: use lofty to read metadata from mp3 files
-
+use lofty::read_from_path;
 fn main() {
 
     let mut location = String::new();
@@ -16,9 +15,8 @@ fn main() {
         if entry.file_type().is_file() {
             match entry.path().extension().and_then(|s| s.to_str()) {
                 Some("mp3") => {
-                    println!("Found an MP3 file: {}", entry.path().display());
-                    todo!("Add code to move MP3 file to music folder");
-                    // future: extract metadata
+                    lofty::read_from_path(entry.path()).unwrap();
+                    println!("Found an mp3 file: {}", entry.path().display());
                 }
                 _ => {
                     println!("Found a file with an unknown extension: {}", entry.path().display());
